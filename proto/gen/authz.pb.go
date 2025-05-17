@@ -423,7 +423,7 @@ func (x *DeletePolicyResponse) GetSuccess() bool {
 
 type CheckPermissionRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Subject       string                 `protobuf:"bytes,1,opt,name=subject,proto3" json:"subject,omitempty"`
+	UserId        string                 `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	Object        string                 `protobuf:"bytes,2,opt,name=object,proto3" json:"object,omitempty"`
 	Action        string                 `protobuf:"bytes,3,opt,name=action,proto3" json:"action,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -460,9 +460,9 @@ func (*CheckPermissionRequest) Descriptor() ([]byte, []int) {
 	return file_authz_proto_rawDescGZIP(), []int{8}
 }
 
-func (x *CheckPermissionRequest) GetSubject() string {
+func (x *CheckPermissionRequest) GetUserId() string {
 	if x != nil {
-		return x.Subject
+		return x.UserId
 	}
 	return ""
 }
@@ -551,9 +551,9 @@ const file_authz_proto_rawDesc = "" +
 	"\x06object\x18\x02 \x01(\tR\x06object\x12\x16\n" +
 	"\x06action\x18\x03 \x01(\tR\x06action\"0\n" +
 	"\x14DeletePolicyResponse\x12\x18\n" +
-	"\asuccess\x18\x01 \x01(\bR\asuccess\"b\n" +
-	"\x16CheckPermissionRequest\x12\x18\n" +
-	"\asubject\x18\x01 \x01(\tR\asubject\x12\x16\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\"a\n" +
+	"\x16CheckPermissionRequest\x12\x17\n" +
+	"\auser_id\x18\x01 \x01(\tR\x06userId\x12\x16\n" +
 	"\x06object\x18\x02 \x01(\tR\x06object\x12\x16\n" +
 	"\x06action\x18\x03 \x01(\tR\x06action\"3\n" +
 	"\x17CheckPermissionResponse\x12\x18\n" +

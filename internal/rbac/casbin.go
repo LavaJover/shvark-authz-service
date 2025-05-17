@@ -24,7 +24,7 @@ func InitEnforcer(cfg *config.AuthzConfig) *casbin.Enforcer {
 	}
 
 	// loading models
-	m, err := model.NewModelFromFile("./model.conf")
+	m, err := model.NewModelFromFile("/home/bodya/Рабочий стол/shvark/authz-service/internal/rbac/model.conf")
 	if err != nil {
 		log.Fatalf("failed to load model: %v\n", err)
 	}

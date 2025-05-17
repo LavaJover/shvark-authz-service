@@ -51,7 +51,7 @@ message DeletePolicyResponse {
 }
 
 message CheckPermissionRequest {
-    string subject = 1;
+    string user_id = 1;
     string object = 2;
     string action = 3;
 }
