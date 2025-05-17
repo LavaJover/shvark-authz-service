@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package authz;
+
+option go_package = "github.com/LavaJover/shvark-authz-service/proto/gen;authzpb";
+
+service AuthzService {
+    rpc AssignRole(AssignRoleRequest) returns (AssignRoleResponse);
+    rpc RevokeRole(RevokeRoleRequest) returns (RevokeRoleResponse);
+    rpc AddPolicy(AddPolicyRequest) returns (AddPolicyResponse);
+    rpc DeletePolicy(DeletePolicyRequest) returns (DeletePolicyResponse);
+    rpc CheckPermission(CheckPermissionRequest) returns (CheckPermissionResponse);
+}
+
+message AssignRoleRequest {
+    string user_id = 1;
+    string role = 2;
+}
+
+message AssignRoleResponse {
+    bool success = 1;
+}
+
+message RevokeRoleRequest {
+    string user_id = 1;
+    string role = 2;
+}
+
+message RevokeRoleResponse {
+    bool success = 1;
+}
+
+message AddPolicyRequest {
+    string subject = 1;
+    string object = 2;
+    string action = 3;
+}
+
+message AddPolicyResponse {
+    bool success = 1;
+}
+
+message DeletePolicyRequest {
+    string subject = 1;
+    string object = 2;
+    string action = 3;
+}
+
+message DeletePolicyResponse {
+    bool success = 1;
+}
+
+message CheckPermissionRequest {
+    string subject = 1;
+    string object = 2;
+    string action = 3;
+}
+
+message CheckPermissionResponse {
+    bool allowed = 1;
+}
