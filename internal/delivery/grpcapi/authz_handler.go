@@ -14,6 +14,10 @@ type AuthzService struct {
 
 func (s *AuthzService) AssignRole(ctx context.Context, req *authzpb.AssignRoleRequest) (*authzpb.AssignRoleResponse, error) {
 	ok, err := s.Enforcer.AddGroupingPolicy(req.UserId, req.Role)
+	if err != nil {
+		return &authzpb.AssignRoleResponse{Success: ok}, err
+	}
+	err = s.Enforcer.SavePolicy()
 	return &authzpb.AssignRoleResponse{Success: ok}, err
 }
 
@@ -24,6 +28,10 @@ func (s *AuthzService) RevokeRole(ctx context.Context, req *authzpb.RevokeRoleRe
 
 func (s *AuthzService) AddPolicy(ctx context.Context, req *authzpb.AddPolicyRequest) (*authzpb.AddPolicyResponse, error) {
 	ok, err := s.Enforcer.AddPolicy(req.Role, req.Object, req.Action)
+	if err != nil {
+		return &authzpb.AddPolicyResponse{Success: ok}, err
+	}
+	err = s.Enforcer.SavePolicy()
 	return &authzpb.AddPolicyResponse{Success: ok}, err
 }
 
@@ -33,6 +41,7 @@ func (s *AuthzService) DeletePolicy(ctx context.Context, req *authzpb.DeletePoli
 }
 
 func (s *AuthzService) CheckPermission(ctx context.Context, req *authzpb.CheckPermissionRequest) (*authzpb.CheckPermissionResponse, error) {
+	s.Enforcer.LoadPolicy()
 	ok, err := s.Enforcer.Enforce(req.UserId, req.Object, req.Action)
 	return &authzpb.CheckPermissionResponse{Allowed: ok}, err
 }
