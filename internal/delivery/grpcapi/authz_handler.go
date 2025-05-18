@@ -23,12 +23,12 @@ func (s *AuthzService) RevokeRole(ctx context.Context, req *authzpb.RevokeRoleRe
 }
 
 func (s *AuthzService) AddPolicy(ctx context.Context, req *authzpb.AddPolicyRequest) (*authzpb.AddPolicyResponse, error) {
-	ok, err := s.Enforcer.AddPolicy(req.Subject, req.Object, req.Action)
+	ok, err := s.Enforcer.AddPolicy(req.Role, req.Object, req.Action)
 	return &authzpb.AddPolicyResponse{Success: ok}, err
 }
 
 func (s *AuthzService) DeletePolicy(ctx context.Context, req *authzpb.DeletePolicyRequest) (*authzpb.DeletePolicyResponse, error) {
-	ok, err := s.Enforcer.RemovePolicy(req.Subject, req.Object, req.Action)
+	ok, err := s.Enforcer.RemovePolicy(req.Role, req.Object, req.Action)
 	return &authzpb.DeletePolicyResponse{Success: ok}, err
 }
 

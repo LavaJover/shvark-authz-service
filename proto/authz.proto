@@ -31,7 +31,7 @@ message RevokeRoleResponse {
 }
 
 message AddPolicyRequest {
-    string subject = 1;
+    string role = 1;
     string object = 2;
     string action = 3;
 }
@@ -41,7 +41,7 @@ message AddPolicyResponse {
 }
 
 message DeletePolicyRequest {
-    string subject = 1;
+    string role = 1;
     string object = 2;
     string action = 3;
 }

@@ -215,7 +215,7 @@ func (x *RevokeRoleResponse) GetSuccess() bool {
 
 type AddPolicyRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Subject       string                 `protobuf:"bytes,1,opt,name=subject,proto3" json:"subject,omitempty"`
+	Role          string                 `protobuf:"bytes,1,opt,name=role,proto3" json:"role,omitempty"`
 	Object        string                 `protobuf:"bytes,2,opt,name=object,proto3" json:"object,omitempty"`
 	Action        string                 `protobuf:"bytes,3,opt,name=action,proto3" json:"action,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -252,9 +252,9 @@ func (*AddPolicyRequest) Descriptor() ([]byte, []int) {
 	return file_authz_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *AddPolicyRequest) GetSubject() string {
+func (x *AddPolicyRequest) GetRole() string {
 	if x != nil {
-		return x.Subject
+		return x.Role
 	}
 	return ""
 }
@@ -319,7 +319,7 @@ func (x *AddPolicyResponse) GetSuccess() bool {
 
 type DeletePolicyRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Subject       string                 `protobuf:"bytes,1,opt,name=subject,proto3" json:"subject,omitempty"`
+	Role          string                 `protobuf:"bytes,1,opt,name=role,proto3" json:"role,omitempty"`
 	Object        string                 `protobuf:"bytes,2,opt,name=object,proto3" json:"object,omitempty"`
 	Action        string                 `protobuf:"bytes,3,opt,name=action,proto3" json:"action,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -356,9 +356,9 @@ func (*DeletePolicyRequest) Descriptor() ([]byte, []int) {
 	return file_authz_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *DeletePolicyRequest) GetSubject() string {
+func (x *DeletePolicyRequest) GetRole() string {
 	if x != nil {
-		return x.Subject
+		return x.Role
 	}
 	return ""
 }
@@ -539,15 +539,15 @@ const file_authz_proto_rawDesc = "" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\x12\x12\n" +
 	"\x04role\x18\x02 \x01(\tR\x04role\".\n" +
 	"\x12RevokeRoleResponse\x12\x18\n" +
-	"\asuccess\x18\x01 \x01(\bR\asuccess\"\\\n" +
-	"\x10AddPolicyRequest\x12\x18\n" +
-	"\asubject\x18\x01 \x01(\tR\asubject\x12\x16\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\"V\n" +
+	"\x10AddPolicyRequest\x12\x12\n" +
+	"\x04role\x18\x01 \x01(\tR\x04role\x12\x16\n" +
 	"\x06object\x18\x02 \x01(\tR\x06object\x12\x16\n" +
 	"\x06action\x18\x03 \x01(\tR\x06action\"-\n" +
 	"\x11AddPolicyResponse\x12\x18\n" +
-	"\asuccess\x18\x01 \x01(\bR\asuccess\"_\n" +
-	"\x13DeletePolicyRequest\x12\x18\n" +
-	"\asubject\x18\x01 \x01(\tR\asubject\x12\x16\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\"Y\n" +
+	"\x13DeletePolicyRequest\x12\x12\n" +
+	"\x04role\x18\x01 \x01(\tR\x04role\x12\x16\n" +
 	"\x06object\x18\x02 \x01(\tR\x06object\x12\x16\n" +
 	"\x06action\x18\x03 \x01(\tR\x06action\"0\n" +
 	"\x14DeletePolicyResponse\x12\x18\n" +
