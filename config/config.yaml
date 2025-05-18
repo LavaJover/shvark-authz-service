@@ -13,4 +13,4 @@ log_config:
   log_format: "json"
   log_output: "stdout"
 authz_db:
-  dsn: "host=localhost user=postgres password=admin dbname=shvark_user_service port=5432 sslmode=disable"
+  dsn: "host=localhost user=postgres password=admin dbname=shvark_authz_service port=5432 sslmode=disable"
