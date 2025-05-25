@@ -45,7 +45,7 @@ func MustLoad() *AuthzConfig {
 	configPath := os.Getenv("AUTHZ_CONFIG_PATH")
 
 	if configPath == ""{
-		log.Fatalf("Authz_CONFIG_PATH was not found\n")
+		log.Fatalf("AUTHZ_CONFIG_PATH was not found\n")
 	}
 
 	if _, err := os.Stat(configPath); err != nil{
