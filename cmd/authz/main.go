@@ -10,9 +10,15 @@ import (
 	"github.com/LavaJover/shvark-authz-service/internal/rbac"
 	authzpb "github.com/LavaJover/shvark-authz-service/proto/gen"
 	"google.golang.org/grpc"
+
+	"github.com/joho/godotenv"
 )
 
 func main(){
+	if err := godotenv.Load(); err != nil {
+		log.Println("failed to load .env")
+	}
+
 	cfg := config.MustLoad()
 	fmt.Println(cfg)
 
