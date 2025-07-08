@@ -30,7 +30,7 @@ func main(){
 	s := grpc.NewServer()
 	authzpb.RegisterAuthzServiceServer(s, &grpcapi.AuthzService{Enforcer: enf})
 
-	log.Printf("Authz service is running on :%s\n", cfg.GRPCServer.Port)
+	log.Printf("Authz service is running on %s:%s\n", cfg.GRPCServer.Host, cfg.GRPCServer.Port)
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
 	}
