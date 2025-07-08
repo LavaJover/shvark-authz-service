@@ -20,9 +20,8 @@ func main(){
 	}
 
 	cfg := config.MustLoad()
-	fmt.Println(cfg)
 
-	lis, err := net.Listen("tcp", ":"+cfg.GRPCServer.Port)
+	lis, err := net.Listen("tcp", fmt.Sprintf("%s:%s", cfg.GRPCServer.Host, cfg.GRPCServer.Port))
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
